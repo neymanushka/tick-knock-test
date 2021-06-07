@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
 	mode: 'development',
@@ -13,6 +14,11 @@ module.exports = {
 			title: 'template',
 			template: './src/index.html',
 		}),
+	 new CopyPlugin({
+      patterns: [
+        { from: "./src/bunny.png", to: "./" },
+      ],
+    }),
 	],
 	resolve: {
 		extensions: ['.ts', '.tsx', '.js'],
